@@ -4,7 +4,7 @@ QA
 This repository contains Quality Assurance artifacts (processes, master test plans, resources available, etc)
 for the Mastercoin Distributed Exchange. It's forked from https://github.com/bitcoin/QA by [gavinandresen](https://github.com/gavinandresen).
 
-Start by reading [Mastercoin Distributed Exchange Test Plan](https://github.com/marv-engine/QA/MastercoinDistributedExchangeTestPlan.md)
+[Mastercoin Distributed Exchange Test Plan](https://github.com/marv-engine/QA/blob/master/MastercoinDistributedExchangeTestPlan.md) describes the testing strategy we are using.
 
 If you are a developer or QA lead, also read
 [TestPlanCreation.md](https://github.com/marv-engine/QA/blob/master/TestPlanCreation.md)
