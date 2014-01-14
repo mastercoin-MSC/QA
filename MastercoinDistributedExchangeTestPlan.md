@@ -1,4 +1,4 @@
-Mastercoin Distributed Exchange Test Plan
+# Mastercoin Distributed Exchange Test Plan
 
 # Introduction
 
@@ -22,7 +22,7 @@ Dist-Ex components also have to detect errors in all phases of processing and re
 
 * presentation of a correct, meaningful message to the user that the transaction has either succeeded or failed
 
-Since MSC transaction data is embedded in the Bitcoin blockchain, testing must confirm that the blockchain is not corrupted or incorrectly modified by the Dist-Ex components. Please refer to the [MSC spec](https://github.com/mastercoin-MSC/spec) appendix **[Storing Mastercoin Data in the Blockchai**n](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)[ ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)for details about how MSC transaction data is to be embedded in the Bitcoin blockchain. 
+Since MSC transaction data is embedded in the Bitcoin blockchain, testing must confirm that the blockchain is not corrupted or incorrectly modified by the Dist-Ex components. Please refer to the [MSC spec](https://github.com/mastercoin-MSC/spec) appendix [Storing Mastercoin Data in the Blockchain](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)[ ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)for details about how MSC transaction data is to be embedded in the Bitcoin blockchain. 
 
 # Test Plan Highlights
 
@@ -40,15 +40,15 @@ The major items & scenarios to be tested include:
 
 5. correct, meaningful messages reflecting transaction success or failure are presented to the user 
 
-The MSC spec appendix **[Webservice verification API** ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
+The MSC spec appendix [Webservice verification API ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
 
 # MSC Transaction Types
 
 For convenience, here’s a list of the MSC transaction types from the [MSC spec](https://github.com/mastercoin-MSC/spec), currently version 0.3.5. The spec always has the authoritative list and descriptions of MSC transactions.
 
-*     0: [Simple Send](https://github.com/mastercoin-MSC/spec#transferring-mastercoins-simple-send)
+*    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transferring-mastercoins-simple-send)
 
-*     1: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
+*    1: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
 
 *   10: [Mark an Address as Savings](https://github.com/mastercoin-MSC/spec#marking-an-address-as-savings)
 
@@ -116,5 +116,4 @@ Erroneous inputs include items such as missing data, malformed/corrupted data (i
 
 # Transaction-specific Tests
 
-We’ll have a baseline test procedure for each transaction type. It’s likely that this test procedure will be customized for the particular application under test.
-
+We’ll have a baseline test procedure for each transaction type. We expect these test procedures to be customized for the particular application under test.
