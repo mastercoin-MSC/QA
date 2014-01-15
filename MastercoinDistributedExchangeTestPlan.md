@@ -9,17 +9,13 @@ The [Distributed Exchange ](http://wiki.mastercoin.org/index.php/Distributed_Exc
 Our main goal is to ensure that all Dist-Ex components adhere to the [MSC spec](https://github.com/mastercoin-MSC/spec) - primarily creation of all appropriate transactions when presented with valid, well-formed inputs and appropriate initial conditions. This requires:
 
 * presentation of a correct, meaningful message to the user that the transaction has been created
-
 * all input and output data structures are left in a demonstrably correct state that reflects successful creation of the transaction
 
 Dist-Ex components also have to detect errors in all phases of processing and react gracefully. Graceful reaction requires:
 
 * presentation of a correct, meaningful message to the user, with options if that’s appropriate
-
 * the transaction is fully undone/rolled back if it cannot be completed successfully
-
 * all input and output data structures are left as they were before the transaction was attempted - in a demonstrably known state with no corruption
-
 * presentation of a correct, meaningful message to the user that the transaction has either succeeded or failed
 
 Since MSC transaction data is embedded in the Bitcoin blockchain, testing must confirm that the blockchain is not corrupted or incorrectly modified by the Dist-Ex components. Please refer to the [MSC spec](https://github.com/mastercoin-MSC/spec) appendix [Storing Mastercoin Data in the Blockchain](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)[ ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)for details about how MSC transaction data is to be embedded in the Bitcoin blockchain. 
@@ -31,14 +27,11 @@ We’ll need test harnesses, object inspectors (e.g. [Masterchain.info](https://
 The major items & scenarios to be tested include:
 
 1. valid input data is parsed and interpreted correctly
-
 2. erroneous input data, including a corrupted blockchain, is detected as not valid and handled correctly
-
 3. creation of valid transactions for all MSC transaction types supported by the application
-
 4. runtime error conditions (e.g. application, network or OS failure) are detected and handled correctly
-
-5. correct, meaningful messages reflecting transaction success or failure are presented to the user 
+5. edge cases are handled correctly
+6. correct, meaningful messages reflecting transaction success or failure are presented to the user 
 
 The MSC spec appendix [Webservice verification API ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
 
@@ -47,37 +40,21 @@ The MSC spec appendix [Webservice verification API ](https://github.com/masterco
 For convenience, here’s a list of the MSC transaction types from the [MSC spec](https://github.com/mastercoin-MSC/spec), currently version 0.3.5. The spec always has the authoritative list and descriptions of MSC transactions.
 
 *    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transferring-mastercoins-simple-send)
-
 *    1: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
-
 *   10: [Mark an Address as Savings](https://github.com/mastercoin-MSC/spec#marking-an-address-as-savings)
-
 *   11: [Mark a Savings Address as Compromised](https://github.com/mastercoin-MSC/spec#marking-a-savings-address-as-compromised)
-
 *   12: [Mark an Address as Rate-Limited](https://github.com/mastercoin-MSC/spec#marking-an-address-as-rate-limited)
-
 *   14: [Remove a Rate Limitation](https://github.com/mastercoin-MSC/spec#removing-a-rate-limitation)
-
 *   20: [Sell Mastercoins for Bitcoins (currency trade offer)](https://github.com/mastercoin-MSC/spec#selling-mastercoins-for-bitcoins)
-
 *   21: [Offer/Accept Mastercoins for other Mastercoin-derived Currency (currency trade offer)](https://github.com/mastercoin-MSC/spec#selling-mastercoins-for-other-mastercoin-derived-currencies)
-
 *   22: [Purchase Mastercoins with Bitcoins (accept currency trade offer)](https://github.com/mastercoin-MSC/spec#purchasing-mastercoins-with-bitcoins)
-
 *   30: [Register a Data Stream](https://github.com/mastercoin-MSC/spec#registering-a-data-stream)
-
 *   40: [Offer/Accept a Bet](https://github.com/mastercoin-MSC/spec#offering-a-bet)
-
 *   50: [Create a Property](https://github.com/mastercoin-MSC/spec#smart-property)
-
 *   60: [List Something for Sale](https://github.com/mastercoin-MSC/spec#listing-something-for-sale)
-
 *   61: [Initiate a Purchase from a Listing](https://github.com/mastercoin-MSC/spec#initiating-a-purchase)
-
 *   62: [Accept a Buyer Offer](https://github.com/mastercoin-MSC/spec#accepting-a-buyer)
-
 *   63: [Release Funds and Leave Feedback](https://github.com/mastercoin-MSC/spec#leaving-feedback)
-
 * 100: [Create a New Child Currency](https://github.com/mastercoin-MSC/spec#new-currency-creation)
 
 # Basic Tests
@@ -90,12 +67,10 @@ These tests will determine if the application under test (AUT) can produce corre
 
 Transactions for each supported transaction type will be generated. For transaction data items that accept a range of values, tests should include values at both ends of the range as well as at least three values in between. For transaction data items that accept values from a list, all values should be tested if possible.
 
- For each transaction, the resulting blockchain will be read by at least:
+For each transaction, the resulting blockchain will be read by at least:
 
 * the AUT instance that generated the transaction, if possible
-
 * a second instance of the AUT
-
 * an independent blockchain explorer
 
 Independently developed dist-ex applications, if available, should also attempt to read the resulting blockchain. 
@@ -103,9 +78,7 @@ Independently developed dist-ex applications, if available, should also attempt 
 The applications that read the resulting blockchain will verify that the AUT:
 
 * did not corrupt the blockchain
-
 * correctly added the transaction to the blockchain
-
 * made no other changes to the blockchain
 
 ## Negative Tests
