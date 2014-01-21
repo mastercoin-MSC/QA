@@ -26,12 +26,14 @@ We’ll need test harnesses, object inspectors (e.g. [Masterchain.info](https://
 
 The major items & scenarios to be tested include:
 
-1. valid input data is parsed and interpreted correctly
-2. erroneous input data, including a corrupted blockchain, is detected as not valid and handled correctly
-3. creation of valid transactions for all MSC transaction types supported by the application
-4. runtime error conditions (e.g. application, network or OS failure) are detected and handled correctly
-5. edge cases are handled correctly
-6. correct, meaningful messages reflecting transaction success or failure are presented to the user 
+1. valid input data is parsed and interpreted correctly, including all valid MSC transaction types in the blockchain that are supported by the application
+1. erroneous input data, including a corrupted blockchain, is detected as not valid and handled correctly
+1. creation of valid transactions for all MSC transaction types supported by the application
+1. multi-participant sequences (e.g. Sell Offer by user A then Purchase Offer by user B)
+1. multi-user tests (e.g. multiple users attempt to accept the same Sell Offer)
+1. runtime error conditions (e.g. application, network or OS failure) are detected and handled correctly
+1. edge cases are handled correctly
+1. correct, meaningful messages reflecting transaction success or failure are presented to the user 
 
 The MSC spec appendix [Webservice verification API ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
 
