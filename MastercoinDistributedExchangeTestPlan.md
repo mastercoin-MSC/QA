@@ -2,11 +2,11 @@
 
 # Introduction
 
-The [Distributed Exchange ](http://wiki.mastercoin.org/index.php/Distributed_Exchange)(Dist-Ex) is a primary feature of Mastercoin (MSC) functionality. MSC system integrity and user confidence in the system depend on the Dist-Ex performing correctly under all circumstances.
+The [Distributed Exchange ](http://wiki.mastercoin.org/index.php/Distributed_Exchange)(Dist-Ex) is a primary feature of Master Protocol / Mastercoin (MSC) functionality. MSC system integrity and user confidence in the system depend on the Dist-Ex performing correctly under all circumstances.
 
 # Testing Philosophy
 
-Our main goal is to ensure that all Dist-Ex components adhere to the [MSC spec](https://github.com/mastercoin-MSC/spec) - primarily creation of all appropriate transactions when presented with valid, well-formed inputs and appropriate initial conditions. This requires:
+Our main goal is to ensure that all Dist-Ex components adhere to the [MSC Protocol spec](https://github.com/mastercoin-MSC/spec) - primarily creation of all appropriate transactions when presented with valid, well-formed inputs and appropriate initial conditions. This requires:
 
 * presentation of a correct, meaningful message to the user that the transaction has been created
 * all input and output data structures are left in a demonstrably correct state that reflects successful creation of the transaction
@@ -18,28 +18,30 @@ Dist-Ex components also have to detect errors in all phases of processing and re
 * all input and output data structures are left as they were before the transaction was attempted - in a demonstrably known state with no corruption
 * presentation of a correct, meaningful message to the user that the transaction has either succeeded or failed
 
-Since MSC transaction data is embedded in the Bitcoin blockchain, testing must confirm that the blockchain is not corrupted or incorrectly modified by the Dist-Ex components. Please refer to the [MSC spec](https://github.com/mastercoin-MSC/spec) appendix [Storing Mastercoin Data in the Blockchain](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)[ ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)for details about how MSC transaction data is to be embedded in the Bitcoin blockchain. 
+Since MSC Protocol transaction data is embedded in the Bitcoin blockchain, testing must confirm that the blockchain is not corrupted or incorrectly modified by the Dist-Ex components. Please refer to the [MSC Protocol spec](https://github.com/mastercoin-MSC/spec) appendix [Storing Mastercoin Data in the Blockchain](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)[ ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)for details about how MSC Protocol transaction data is to be embedded in the Bitcoin blockchain. 
 
 # Test Plan Highlights
 
 We’ll need test harnesses, object inspectors (e.g. [Masterchain.info](https://masterchain.info/) and other utilities from [https://github.com/grazcoin/mastercoin-tools](https://github.com/grazcoin/mastercoin-tools), [http://wiki.mastercoin.org/index.php/Block_Explorers](http://wiki.mastercoin.org/index.php/Block_Explorers)), scripts, known inputs, etc. to set up and run comprehensive and repeatable functionality testing in clean environments. We’ll have to verify that these components themselves are correct. For now, the bulk of testing can be done using Test Mastercoins (TMSC) on the Bitcoin mainnet. After testing with TMSC, it’s best to test with MSC on the Bitcoin mainnet if possible, to confirm that everything works in the production environment. In the future, we will test using TMSC on [Bitcoin testnet](https://en.bitcoin.it/wiki/Testnet), MSC on testnet, TMSC on mainnet, and finally with MSC on mainnet.
 
-The major items & scenarios to be tested include:
+# Major Items & Scenarios To Be Tested
 
-1. valid input data is parsed and interpreted correctly, including all valid MSC transaction types in the blockchain that are supported by the application
+Each candidate application will be tested for the following functionality:
+
+1. valid input data is parsed and interpreted correctly, including all valid MSC Protocol transaction types in the blockchain that are supported by the application
 1. erroneous input data, including a corrupted blockchain, is detected as not valid and handled correctly
-1. creation of valid transactions for all MSC transaction types supported by the application
+1. creation of valid transactions for all MSC Protocol transaction types supported by the application
 1. multi-participant sequences (e.g. Sell Offer by user A then Purchase Offer by user B)
 1. multi-user tests (e.g. multiple users attempt to accept the same Sell Offer)
 1. runtime error conditions (e.g. application, network or OS failure) are detected and handled correctly
 1. edge cases are handled correctly
 1. correct, meaningful messages reflecting transaction success or failure are presented to the user 
 
-The MSC spec appendix [Webservice verification API ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
+The MSC Protocol spec appendix [Webservice verification API ](https://github.com/mastercoin-MSC/spec#appendix-a--storing-mastercoin-data-in-the-blockchain)has information about basic transaction verification services that should be implemented by web-based Mastercoin services.
 
-# MSC Transaction Types
+# MSC Protocol Transaction Types
 
-For convenience, here’s a list of the MSC transaction types from the [MSC spec](https://github.com/mastercoin-MSC/spec), currently version 0.3.5. The spec always has the authoritative list and descriptions of MSC transactions.
+For convenience, here’s a list of the MSC Protocol transaction types from the [MSC Protocol spec](https://github.com/mastercoin-MSC/spec), currently version 0.3.5. The spec always has the authoritative list and descriptions of MSC Protocol transactions.
 
 *    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transferring-mastercoins-simple-send)
 *    1: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
