@@ -16,9 +16,8 @@ For example, for sanity-testing a release the setup might be:
 
 0. Fork the test plan's github repository (see [TestPlanExecution.md](TestPlanExecution.md) )
 1. Begin with a clean, non-developer operating-system image.
-2. Download latest release candidate from sourceforge.
+2. Download release candidate (RC) version to be tested.
 3. Run installer or follow installation instructions.
-4. Create a bitcoin.conf file in the default data directory (~/.bitcoin on Linux, etc; see sample.bitcoin.conf)
 
 ## Tests
 
@@ -26,7 +25,7 @@ Each test is a level-3 section, with Title, test procedure, and expected results
 
 ### Blockchain download
 
-Run Bitcoin-Qt for the first time on a clean system.
+Run the RC on a clean system.
 
 EXPECT:
 
@@ -36,15 +35,14 @@ EXPECT:
 
 PASS/FAIL  (if FAIL, tester may add notes here or links to issues filed)
 
-### Revert back to last release
+### Other test here
 
-Run the previous test. Copy the wallet's default receiving bitcoin address.
-Then uninstall Bitcoin-Qt, install the previous release and run it.
+Steps to be performed, with enough detail to be precisely repeated
 
 EXPECT:
 
-1. Same wallet is used (GUI shows same receiving address)
-2. GUI is up and running and synchronized with the network quickly.
+1. Specific details about presentation to user; links to annotated screenshots are helpful
+2. Specific details on how to check for correct outputs, e.g. blockchain content, wallet
 
 PASS/FAIL
 
@@ -52,5 +50,5 @@ PASS/FAIL
 
 Tell testers what they should do when they're finished; for example:
 
-Email a link to your forked repository with attached debug.log files to {...}. If the debug.log files are
+Email a link to your forked repository with attached log files to {...}. If the log files are
 too large to attach, upload them to a service like mediafire.com, dropbox, etc. and include a link in the email.
