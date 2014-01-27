@@ -94,4 +94,4 @@ Erroneous inputs include items such as missing data, malformed/corrupted data (i
 
 # Transaction-specific Tests
 
-We’ll have a baseline test procedure for each transaction type. We expect these test procedures to be customized for the particular application under test.
+Baseline test requirements for each transaction type will be collected in [TestRequirements](https://github.com/marv-engine/QA/tree/master/TestRequirements). These test requirements serve as guidelines for implementing specific test procedures for each application under test.
