@@ -19,10 +19,10 @@ Creating a new plan
 --
 
 1. Fork this repository<br/>
-  ![github fork](http://dl.dropbox.com/u/38065353/Github_ForkButton.jpg)
+  ![github fork](https://copy.com/2laWomE4VjAj)
 2. Create a new file to contain the new test plan. Try to choose a good filename.<br/>
-  ![github add](http://dl.dropbox.com/u/38065353/Github_AddButton.jpg)
-3. Create the test plan; copy/paste the [TestPlanSkeleton.md](TestPlanSkeleton.md) template to start.
+  ![github add](https://copy.com/IWYNSeKhu3XA)
+3. Create the test plan in QA/TestPlans; copy/paste the [TestPlanSkeleton.md](TestPlanSkeleton.md) template to start.
 
 Testing
 --
