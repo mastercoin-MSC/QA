@@ -1,4 +1,4 @@
-Running Test Plans
+Test Plan Execution
 ==
 
 Prerequisites: you must have a github account; we're using github to store test results, and to keep track of issues.
