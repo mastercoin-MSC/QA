@@ -20,21 +20,28 @@ The tests for Sell Mastercoins for Bitcoins include:
 1. all edge cases are handled correctly
 1. correct, meaningful messages reflecting transaction success/status or failure are presented to the user
 
+For each test sequence, start in a known state and return to a known state after the test is complete.
+
 ## Positive Tests - Valid
+For the positive tests, each step must succeed with correct results. 
+### Basic Sell Offer manipulation
 1. Create sell offer
 1. Update sell offer
 1. Cancel sell offer
 1. Create sell offer
 
+### Basic Sell/Purchase/Pay
 1. Create sell offer for more MSC than available
 1. Receive full purchase offer
 1. Receive full payment
 
+### Update/Cancel after One Purchase
 1. Create sell offer
 1. Receive full purchase offer
 1. Update sell offer before payment received
 1. Cancel sell offer before payment received
- 
+
+### Update/Cancel with Two or More Partial Purchases
 1. Create sell offer
 1. Receive partial purchase offer #1
 1. Update sell offer
@@ -42,6 +49,7 @@ The tests for Sell Mastercoins for Bitcoins include:
 1. Receive partial purchase offer #2
 1. Cancel sell offer
 
+### No Payment after Partial Purchase
 1. Create sell offer
 1. Receive partial purchase offer #1
 1. Receive no payment within time limit
@@ -49,16 +57,11 @@ The tests for Sell Mastercoins for Bitcoins include:
 
 
 ## Negative Tests - Not Valid
+For the negative tests, the final step of each test must not succeed.
+
+### Erroneous Message Field Data
 1. Attempt to create sell offers:
     * for currency id other than 1 and 2
-    * time limit = 0
-    * bitcoins desired = 0
-
-1. Create sell offer
-1. Attempt to create a second sell offer
-
-1. Attempt to create tx 20 message(s) with:
-    * currency id other than 1 and 2
     * time limit = 0
     * bitcoins desired = 0
     * Action other than 1, 2 and 3
@@ -69,17 +72,16 @@ The tests for Sell Mastercoins for Bitcoins include:
     * bitcoins desired = 0
     * after fully purchased and payment received
 
+### Create a Sell Offer While One is Active
+1. Create sell offer
+1. Attempt to create a second sell offer
+
+### Cancel a Completed Sell Offer
 1. Attempt to cancel sell offer:
     * after fully purchased and full payment received
 
+### Cancel When No Sell Offer is Active
 1. Attempt to cancel sell offer when no sell offer active
-
-1. Attempt to create tx 20 message(s) with:
-    * currency id other than 1 and 2
-    * time limit = 0
-    * bitcoins desired = 0
-    * Action other than 1, 2 and 3
-
 
 The tester and developer should work together to write and run procedures that thoroughly test this functionality in the AUT.
 

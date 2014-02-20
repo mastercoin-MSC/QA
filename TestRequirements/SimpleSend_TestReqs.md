@@ -18,6 +18,8 @@ The tests for Simple Send include:
 1. all edge cases are handled correctly
 1. correct, meaningful messages reflecting transaction success/status or failure are presented to the user
 
+For each test sequence, start in a known state and return to a known state after the test is complete.
+
 ## Positive Tests - Valid
 1. Create Simple Send message(s) with valid values for:
     * Currency identifier
@@ -32,4 +34,3 @@ The tests for Simple Send include:
 
 The tester and developer should work together to write and run procedures that thoroughly test this functionality in the AUT.
 
-(More words to come)
