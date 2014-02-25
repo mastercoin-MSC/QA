@@ -20,7 +20,9 @@ The tests for Sell Mastercoins for Bitcoins include:
 1. all edge cases are handled correctly
 1. correct, meaningful messages reflecting transaction success/status or failure are presented to the user
 
-For each test sequence, start in a known state and return to a known state after the test is complete.
+For each test sequence, start in a known state and return to a known state after the test is complete. Run the tests separately and also simultaneously. The simultaneous tests should be run by the same users/addresses in the same roles where possible, and also by different users/addresses.
+
+Where appropriate, tests should be run using the end-user UI and using the API directly.
 
 ## Positive Tests - Valid
 For the positive tests, each step must succeed with correct results. 
@@ -79,6 +81,9 @@ For the negative tests, the final step of each test must not succeed.
 ### Cancel a Completed Sell Offer
 1. Attempt to cancel sell offer:
     * after fully purchased and full payment received
+
+### Update When No Sell Offer is Active
+1. Attempt to update sell offer when no sell offer active
 
 ### Cancel When No Sell Offer is Active
 1. Attempt to cancel sell offer when no sell offer active
