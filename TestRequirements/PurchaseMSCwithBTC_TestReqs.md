@@ -17,7 +17,9 @@ The tests for Purchase Mastercoins with Bitcoins include:
 1. all edge cases are handled correctly
 1. correct, meaningful messages reflecting transaction success/status or failure are presented to the user
 
-For each test sequence, start in a known state and return to a known state after the test is complete.
+For each test sequence, start in a known state and return to a known state after the test is complete. Run the tests separately and also simultaneously. The simultaneous tests should be run by the same users/addresses in the same roles where possible, and also by different users/addresses.
+
+Where appropriate, tests should be run using the end-user UI and using the API directly.
 
 ## Positive Tests - Valid
 For the positive tests, each step must succeed with correct results. 
@@ -31,58 +33,80 @@ For the positive tests, each step must succeed with correct results.
 1. U2: See that the sell offer has been canceled
 
 ### Full Purchase of Exact Amount of Sell Offer
-1. View a sell offer
-1. Send a purchase offer for the full amount of the sell offer
-1. See that you purchased the full amount
-1. Send payment for the purchase offer within the time limit
-1. See that your address now owns the purchased coins
-
-### Attempt to Purchase More Than is Available
-1. U1: View a sell offer
-1. U2: View a sell offer
-1. U1: Send a purchase offer for a partial amount of the sell offer
-1. U1: See that you purchased the partial amount 
+1. U1: Create a sell offer
+1. U2: View the sell offer
 1. U2: Send a purchase offer for the full amount of the sell offer
-1. U2: See that you purchased only the remaining amount 
+1. U2: See that you purchased the full amount
 1. U2: Send payment for the purchase offer within the time limit
 1. U2: See that your address now owns the purchased coins
-1. U1: Send payment for the purchase offer within the time limit
-1. U1: See that your address now owns the purchased coins
+1. U1: See that your address now owns the amount paid
+
+### Attempt to Purchase More Than is Available
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U3: View the sell offer
+1. U2: Send a purchase offer for a partial amount of the sell offer
+1. U2: See that you purchased the partial amount 
+1. U3: Send a purchase offer for the full amount of the sell offer
+1. U3: See that you purchased only the remaining amount 
+1. U3: Send exact payment for the purchase offer within the time limit
+1. U3: See that your address now owns the purchased coins
+1. U2: Send exact payment for the purchase offer within the time limit
+1. U2: See that your address now owns the purchased coins
+1. U1: See that your address now owns the amount paid
+
+### Extra Payment after Full Purchase
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U2: Send a purchase offer for the full amount of the sell offer
+1. U2: See that you purchased the full amount
+1. U2: Send payment for the purchase offer within the time limit
+1. U2: Send extra payment for the purchase offer within the time limit
+1. U2: See that your address now owns the exact amount of coins purchased
+1. U1: See that your address now owns the total amount paid
 
 ### Two or More (Partial Purchase, Payment) Pairs
-1. View a sell offer
-1. Send a purchase offer for a partial amount of the sell offer
-1. Send payment for the amount purchased within the time limit
-1. See that your address now owns the purchased coins
-1. Send a purchase offer for a partial amount of the remaining sell offer
-1. Send payment for the amount purchased within the time limit
-1. See that your address now owns the purchased coins
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U2: Send a purchase offer for a partial amount of the sell offer
+1. U2: Send payment for the amount purchased within the time limit
+1. U2: See that your address now owns the purchased coins
+1. U2: Send a purchase offer for a partial amount of the remaining sell offer
+1. U2: Send payment for the amount purchased within the time limit
+1. U2: See that your address now owns the purchased coins
+1. U1: See that your address now owns the total amount paid
 
 ### Two or More Partial Purchases Followed by Multiple Payments
-1. View a sell offer
-1. Send a purchase offer for a partial amount of the sell offer
-1. See the new amount available in the sell offer
-1. Send a purchase offer for a partial amount of the remaining sell offer
-1. Send some payment for the amount owed within the time limit
-1. Send payment for the balance owed within the time limit
-1. See that your address now owns the purchased coins
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U2: Send a purchase offer for a partial amount of the sell offer
+1. U2: See the new amount available in the sell offer
+1. U2: Send a purchase offer for a partial amount of the remaining sell offer
+1. U2: Send some payment for the amount owed within the time limit
+1. U2: Send payment for the balance owed within the time limit
+1. U2: See that your address now owns the purchased coins
+1. U1: See that your address now owns the total amount paid
 
 ### Partial Payment after Full Purchase
-1. View a sell offer
-1. Send a purchase offer for the full amount of the sell offer
-1. See that no amount is available in the sell offer
-1. Send partial payment within time limit
-1. Let time limit expire
-1. See that your address now owns the amount paid for
-1. See amount not paid for is again available
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U2: Send a purchase offer for the full amount of the sell offer
+1. U2: See that no amount is available in the sell offer
+1. U2: Send partial payment within time limit
+1. U2: Let time limit expire
+1. U2: See that your address now owns the coins that were paid for
+1. U2: See amount not paid for is again available
+1. U1: See that your address now owns the amount paid
 
 ### Extra Payment after Partial Purchase
-1. View a sell offer
-1. Send a purchase offer for a partial amount of the sell offer
-1. See that the remainder is available in the sell offer
-1. Send more payment than required within time limit
-1. See that you own the amount you paid for
-1. See that the correct remaining amount is now available for sale
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U2: Send a purchase offer for a partial amount of the sell offer
+1. U2: See that the remainder is available in the sell offer
+1. U2: Send more payment than required within time limit
+1. U2: See that you own the amount you paid for
+1. U2: See that the correct remaining amount is now available for sale
+1. U1: See that your address now owns the amount paid
 
 ### No Payment after Partial Purchase
 1. View a sell offer
