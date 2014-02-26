@@ -54,6 +54,22 @@ For the positive tests, each step must succeed with correct results.
 1. U2: Send exact payment for the purchase offer within the time limit
 1. U2: See that your address now owns the purchased coins
 1. U1: See that your address now owns the amount paid
+1. U1: See that the sell offer has been completed
+1. U2: See that the sell offer has been completed
+1. U3: See that the sell offer has been completed
+
+### Attempt to Purchase When None is Available
+1. U1: Create a sell offer
+1. U2: View the sell offer
+1. U3: View the sell offer
+1. U2: Send a purchase offer for the full amount of the sell offer
+1. U3: Send a purchase offer for the full amount of the sell offer
+1. U2: See that you purchased the full amount 
+1. U3: See that none of the sell offer is currently available 
+1. U2: Send exact payment for the purchase offer within the time limit
+1. U3: See that the sell offer has been completed
+1. U2: See that your address now owns the purchased coins
+1. U1: See that your address now owns the amount paid
 
 ### Extra Payment after Full Purchase
 1. U1: Create a sell offer
