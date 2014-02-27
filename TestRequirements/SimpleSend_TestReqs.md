@@ -23,6 +23,7 @@ For each test sequence, start in a known state and return to a known state after
 Where appropriate, tests should be run using the end-user UI and using the API directly.
 
 ## Positive Tests - Valid
+### Create a valid Simple Send 
 1. U1: Create Simple Send message(s) with valid values for:
     * Currency identifier
     * Amount to transfer
@@ -31,6 +32,7 @@ Where appropriate, tests should be run using the end-user UI and using the API d
 1. U2: See that you now own the amount transferred
 
 ## Negative Tests - Not valid
+### Attempt to Create an Incorrect Simple Send
 1. U1: Attempt to create Simple Send message(s):
     * Currency identifier = 0 or any non-existent id
     * Amount to transfer = 0
