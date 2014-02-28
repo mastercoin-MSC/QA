@@ -13,4 +13,4 @@ Candidate implementations for initial deployment should be ready for formal test
 If you are a developer or QA lead, also read
 [TestPlanCreation.md](TestPlanCreation.md)
 
-If you want to help out (and maybe earn some BTC for testing), then read [TestPlanExecution.md](TestPlanExecution.md)
+If you want to help out (and maybe earn some bounty for testing), then read [TestPlanExecution.md](TestPlanExecution.md)
