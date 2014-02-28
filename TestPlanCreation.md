@@ -15,7 +15,7 @@ Creating a new plan
 --
 
 1. Fork this [mastercoin-MSC/QA repository](https://github.com/mastercoin-MSC/QA).
-1. Create a directory in your fork for the application to be tested, e.g. OmniWallet.
+1. Create a subdirectory in the [TestPlans](TestPlans) directory of your fork for the application to be tested, e.g. OmniWallet.
 1. Copy the appropriate test requirements file(s) from the [TestRequirements](TestRequirements) directory into the newly created application directory.
 1. Edit each test procedure to tailor the steps for the application to be tested. Be as explicit as possible. You can use [TestPlanSkeleton.md](TestPlanSkeleton.md) as a template.
     * Include steps to initialize the test environment to a known state.
