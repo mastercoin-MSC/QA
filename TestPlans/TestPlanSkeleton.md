@@ -1,6 +1,4 @@
-# TEST PLAN TITLE
-
-Submit completed tests and debug.log files to:  {Name &lt;email&gt;}
+# {Application} TEST PLAN
 
 Version tested:
 {0.x.y release candidate N, or git commit}
@@ -14,10 +12,9 @@ Describe any test environment setup that needs to be done, in an explicit, step-
 
 For example, for sanity-testing a release the setup might be:
 
-0. Fork the test plan's github repository (see [TestPlanExecution.md](TestPlanExecution.md) )
 1. Begin with a clean, non-developer operating-system image.
-2. Download release candidate (RC) version to be tested.
-3. Run installer or follow installation instructions.
+1. Download release candidate (RC) version to be tested.
+1. Run installer or follow installation instructions.
 
 ## Tests
 
@@ -25,7 +22,7 @@ Each test is a level-3 section, with Title, test procedure, and expected results
 
 ### Blockchain download
 
-Run the RC on a clean system.
+1. Run the RC on a clean system.
 
 EXPECT:
 
@@ -37,7 +34,7 @@ PASS/FAIL  (if FAIL, tester may add notes here or links to issues filed)
 
 ### Other test here
 
-Steps to be performed, with enough detail to be precisely repeated
+1. Steps to be performed, with enough detail to be precisely repeated
 
 EXPECT:
 
@@ -48,7 +45,7 @@ PASS/FAIL
 
 ### Final steps
 
-Tell testers what they should do when they're finished; for example:
+Tell testers what they should do when they're finished.
 
-Email a link to your forked repository with attached log files to {...}. If the log files are
-too large to attach, upload them to a service like mediafire.com, dropbox, etc. and include a link in the email.
+Submit your test results, including links to log files and screenshots, by filling out the  
+[MSC Client Test Results Reporting Form](https://docs.google.com/forms/d/1KZw-JYjt9njBXw4GJU2IXIGKP38oytdlCXZcTnw40Xc/viewform).
