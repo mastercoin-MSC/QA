@@ -46,6 +46,7 @@ Your test failed if you are able to get a reply from the server IN RED ('Your fu
 
 ### Final steps
 
+Ensure the requirements in /TestRequirements/SimpleSend_TestReqs.md are also met during testing.  
 Clean up after yourself, delete all temporary files, and reboot your machine.
 
 Submit your test results, including links to log files and screenshots, by filling out the  
