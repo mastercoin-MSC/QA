@@ -42,25 +42,33 @@ The MSC Protocol spec appendix [Webservice verification API ](https://github.com
 
 # MSC Protocol Transaction Types
 
-For convenience, here’s a list of the MSC Protocol transaction types from the [MSC Protocol spec](https://github.com/mastercoin-MSC/spec), currently version 0.3.5. The spec always has the authoritative list and descriptions of MSC Protocol transactions.
+For convenience, here’s a list of the MSC Protocol transaction types from the [MSC Protocol spec](https://github.com/mastercoin-MSC/spec), version 0.4.5.1 at the time of this update. The spec always has the authoritative list and descriptions of MSC Protocol transactions.
 
-*    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transferring-mastercoins-simple-send)
-*    1: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
-*   10: [Mark an Address as Savings](https://github.com/mastercoin-MSC/spec#marking-an-address-as-savings)
-*   11: [Mark a Savings Address as Compromised](https://github.com/mastercoin-MSC/spec#marking-a-savings-address-as-compromised)
-*   12: [Mark an Address as Rate-Limited](https://github.com/mastercoin-MSC/spec#marking-an-address-as-rate-limited)
-*   14: [Remove a Rate Limitation](https://github.com/mastercoin-MSC/spec#removing-a-rate-limitation)
-*   20: [Sell Mastercoins for Bitcoins (currency trade offer)](https://github.com/mastercoin-MSC/spec#selling-mastercoins-for-bitcoins)
-*   21: [Offer/Accept Mastercoins for other Mastercoin-derived Currency (currency trade offer)](https://github.com/mastercoin-MSC/spec#selling-mastercoins-for-other-mastercoin-derived-currencies)
-*   22: [Purchase Mastercoins with Bitcoins (accept currency trade offer)](https://github.com/mastercoin-MSC/spec#purchasing-mastercoins-with-bitcoins)
-*   30: [Register a Data Stream](https://github.com/mastercoin-MSC/spec#registering-a-data-stream)
-*   40: [Offer/Accept a Bet](https://github.com/mastercoin-MSC/spec#offering-a-bet)
-*   50: [Create a Property](https://github.com/mastercoin-MSC/spec#smart-property)
-*   60: [List Something for Sale](https://github.com/mastercoin-MSC/spec#listing-something-for-sale)
-*   61: [Initiate a Purchase from a Listing](https://github.com/mastercoin-MSC/spec#initiating-a-purchase)
-*   62: [Accept a Buyer Offer](https://github.com/mastercoin-MSC/spec#accepting-a-buyer)
-*   63: [Release Funds and Leave Feedback](https://github.com/mastercoin-MSC/spec#leaving-feedback)
-* 100: [Create a New Child Currency](https://github.com/mastercoin-MSC/spec#new-currency-creation)
++ Current:
+    *    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transfer-coins-simple-send)
+    *    1: [Investment Send](https://github.com/mastercoin-MSC/spec#investment-send)
+    *   20: [Sell Coins for Bitcoins (currency trade offer)](https://github.com/mastercoin-MSC/spec#sell-mastercoins-for-bitcoins)
+    *   21: [Offer/Accept Master Protocol Coins for Another Master Protocol Currency (currency trade offer)](https://github.com/mastercoin-MSC/spec#sell-master-protocol-coins-for-another-master-protocol-currency)
+    *   22: [Purchase Coins with Bitcoins (accept currency trade offer)](https://github.com/mastercoin-MSC/spec#purchase-mastercoins-with-bitcoins)
+    *   50: [Create a Property with fixed number of tokens](https://github.com/mastercoin-MSC/spec#new-property-creation-with-fixed-number-of-tokens)
+    *   51: [Create a Property via Fundraiser with Variable number of Tokens](https://github.com/mastercoin-MSC/spec#new-property-creation-via-fundraiser-with-variable-number-of-tokens)
+    *   52: [Promote a Property](https://github.com/mastercoin-MSC/spec#promote-a-property)
+
++ To be added in future releases:
+    *    2: [Restricted Send](https://github.com/mastercoin-MSC/spec#restricted-send)
+    *    3: [Pay Dividends (Send All)](https://github.com/mastercoin-MSC/spec#pay-dividends-send-all)
+    *   10: [Mark an Address as Savings](https://github.com/mastercoin-MSC/spec#marking-an-address-as-savings)
+    *   11: [Mark a Savings Address as Compromised](https://github.com/mastercoin-MSC/spec#marking-a-savings-address-as-compromised)
+    *   12: [Mark an Address as Rate-Limited](https://github.com/mastercoin-MSC/spec#marking-an-address-as-rate-limited)
+    *   14: [Remove a Rate Limitation](https://github.com/mastercoin-MSC/spec#removing-a-rate-limitation)
+    *   30: [Register a Data Stream](https://github.com/mastercoin-MSC/spec#registering-a-data-stream)
+    *   31: [Publish Data](https://github.com/mastercoin-MSC/spec#publishing-data)
+    *   40: [Offer/Accept a Bet](https://github.com/mastercoin-MSC/spec#offering-a-bet)
+    *   60: [List Something for Sale](https://github.com/mastercoin-MSC/spec#listing-something-for-sale)
+    *   61: [Initiate a Purchase from a Listing](https://github.com/mastercoin-MSC/spec#initiating-a-purchase)
+    *   62: [Respond to a Buyer Offer](https://github.com/mastercoin-MSC/spec#accepting-a-buyer)
+    *   63: [Release Funds and Leave Feedback](https://github.com/mastercoin-MSC/spec#leaving-feedback)
+    * 100: [Create a New Child Currency](https://github.com/mastercoin-MSC/spec#new-currency-creation)
 
 # Basic Tests
 
@@ -90,8 +98,8 @@ The applications that read the resulting blockchain will verify that the AUT:
 
 These tests will determine if the application can detect erroneous inputs and runtime environmental errors and react properly.
 
-Erroneous inputs include items such as missing data, malformed/corrupted data (including a bad blockchain), numeric values outside of acceptable ranges, values not in the list of valid inputs, non-numeric data where numeric values are required. Runtime environmental errors can be introduced by doing things such as manually killing the application process, disconnecting the network, removing or changing permissions of data files, powering down the machine.
+Erroneous inputs include items such as missing data, malformed/corrupted data (including a bad blockchain), numeric values outside of acceptable ranges, values not in the list of valid inputs, non-numeric data where numeric values are required, unsupported transaction messages and transaction message versions. Each application is expected to have additional erroneous inputs. Runtime environmental errors can be introduced by doing things such as manually killing the application process, disconnecting the network, removing or changing permissions of data files, powering down the machine.
 
 # Transaction-specific Tests
 
-Baseline test requirements for each transaction type will be collected in [TestRequirements](https://github.com/marv-engine/QA/tree/master/TestRequirements). These test requirements serve as guidelines for implementing specific test procedures for each application under test.
+Baseline test requirements for each transaction type are identified in [TestRequirements](TestRequirements). These test requirements serve as guidelines for implementing specific test procedures for each application under test.
