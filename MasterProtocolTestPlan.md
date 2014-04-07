@@ -50,12 +50,11 @@ For convenience, here’s a list of the MSC Protocol transaction types from the 
 
 + Current:
     *    0: [Simple Send](https://github.com/mastercoin-MSC/spec#transfer-coins-simple-send)
-    *    1: [Investment Send](https://github.com/mastercoin-MSC/spec#investment-send)
     *   20: [Sell Coins for Bitcoins (currency trade offer)](https://github.com/mastercoin-MSC/spec#sell-mastercoins-for-bitcoins)
     *   21: [Offer/Accept Master Protocol Coins for Another Master Protocol Currency (currency trade offer)](https://github.com/mastercoin-MSC/spec#sell-master-protocol-coins-for-another-master-protocol-currency)
     *   22: [Purchase Coins with Bitcoins (accept currency trade offer)](https://github.com/mastercoin-MSC/spec#purchase-mastercoins-with-bitcoins)
     *   50: [Create a Property with fixed number of tokens](https://github.com/mastercoin-MSC/spec#new-property-creation-with-fixed-number-of-tokens)
-    *   51: [New Property Creation via Crowdsale with Variable number of Tokens](https://github.com/mastercoin-MSC/spec#new-property-creation-via-crowdsale-with-variable-number-of-tokens)
+    *   51: [Create a Property via Crowdsale with Variable number of Tokens](https://github.com/mastercoin-MSC/spec#new-property-creation-via-crowdsale-with-variable-number-of-tokens)
     *   52: [Promote a Property](https://github.com/mastercoin-MSC/spec#promote-a-property)
     *   53: [Close a Crowdsale Manually](https://github.com/mastercoin-MSC/spec#close-a-crowdsale-manually)
 
