@@ -51,14 +51,6 @@ For the positive tests, each step must succeed - with correct results.
     * Only largest owner receives the Amount to transfer, others receive 0
     * .00000001 MSC (or TMSC) transfer fee deducted from sender's balance
 
-### Sender owns all the tokens (assuming this is valid, with no spec change)
-1. Send to Owners
-    * Sender's address owns all the tokens
-    * Amount to transfer <= sender address's balance
-1. Confirm
-    * Sender's address still owns the same number of tokens
-    * 0 transfer fee deducted from sender's MSC (or TMSC) balance
-
 ## Negative Tests - Not Valid
 ### Erroneous Message Field Data (each condition is individually invalid)
 1. Attempt to Send to Owners:
@@ -68,5 +60,18 @@ For the positive tests, each step must succeed - with correct results.
     * Amount to transfer > sender's available balance
     * Amount to transfer <= 0
     * insufficient MSC (or TMSC) to pay calculated transfer fee (based on number of addresses that would receive payment)
+1. Confirm, for each condition
+    * transaction message was invalid
+    * All owners' addresses still own the same number of tokens
+    * 0 transfer fee deducted from sender's MSC (or TMSC) balance
+
+### Sender owns all the tokens
+1. Attempt to Send to Owners:
+    * Sender's address owns all the tokens
+    * Amount to transfer <= sender address's balance
+1. Confirm
+    * transaction message was invalid
+    * Sender's address still owns the same number of tokens
+    * 0 transfer fee deducted from sender's MSC (or TMSC) balance
 
 The tester and developer should work together to write and run procedures that thoroughly test this functionality in the AUT.
