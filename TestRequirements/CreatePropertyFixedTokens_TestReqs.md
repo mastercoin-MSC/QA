@@ -56,6 +56,7 @@ Where appropriate, tests should be run using the end-user UI and using the API d
         + Property URL
         + Property Data
     * Number Properties = 0 and Property Type = 1 or 2
+    * Number Properties > max allowed per spec [Number of Coins](https://github.com/mastercoin-MSC/spec#field-number-of-coins)
 1. U1: See that a property is not created with the erroneous input values
 1. U2: See that a property is not created with the erroneous input values
 
