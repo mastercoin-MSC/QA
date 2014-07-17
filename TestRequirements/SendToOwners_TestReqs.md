@@ -26,20 +26,46 @@ For the positive tests, each step must succeed - with correct results.
 1. Send to Owners
     * Currency Id = 1, 2, at least 2 smart properties (divis, indiv)
     * Amount to transfer <= the sender's available balance
-        * For MSC & TMSC, Amount to transfer leaves enough to pay transfer fee
+        * For MSC & TMSC, Amount to transfer leaves enough in balance to pay transfer fee
 1. Confirm:
-    * sending address Currency Id balance decremented by Amount to transfer
+    * sending address Currency Id available balance decremented by Amount to transfer
     * sending address MSC (or TMSC) balance decremented based on number of addresses that received payment
-    * correct amounts transferred to the correct addresses
+    * correct amounts added to available balance of the correct addresses (rounding up to nearest unit, smaller owners receive 0 if Amount to transfer consumed in payments to larger owners)
+
+### Send to Owners that have reserved balances
+1. Send to Owners
+    * Currency Id = 1, 2, at least 2 smart properties (divis, indiv)
+    * Amount to transfer <= the sender's available balance
+        * For MSC & TMSC, Amount to transfer leaves enough in balance to pay transfer fee
+1. Confirm:
+    * sending address Currency Id available balance decremented by Amount to transfer
+    * sending address MSC (or TMSC) balance decremented based on number of addresses that received payment
+    * correct amounts added to available balance of the correct addresses (rounding up to nearest unit, smaller owners receive 0 if Amount to transfer consumed in payments to larger owners)
+        * reserved balances unchanged for all addresses involved
+
+### Only largest owner receives tokens
+1. Send to Owners
+    * Amount to transfer = 1 for indiv, .00000001 for divis token
+    * More than 1 owner
+1. Confirm
+    * Only largest owner receives the Amount to transfer, others receive 0
+    * .00000001 MSC (or TMSC) transfer fee deducted from sender's balance
+
+### Sender owns all the tokens (assuming this is valid, with no spec change)
+1. Send to Owners
+    * Sender's address owns all the tokens
+    * Amount to transfer <= sender address's balance
+1. Confirm
+    * Sender's address still owns the same number of tokens
+    * 0 transfer fee deducted from sender's MSC (or TMSC) balance
 
 ## Negative Tests - Not Valid
-
-### Erroneous Message Field Data
+### Erroneous Message Field Data (each condition is individually invalid)
 1. Attempt to Send to Owners:
     * currency id = 0 (bitcoin)
     * a non-existent currency id
     * available balance = 0
-    * Amount to transfer > available balance
+    * Amount to transfer > sender's available balance
     * Amount to transfer <= 0
     * insufficient MSC (or TMSC) to pay calculated transfer fee (based on number of addresses that would receive payment)
 
