@@ -51,6 +51,12 @@ For the positive tests, each step must succeed - with correct results.
     * Only largest owner receives the Amount to transfer, others receive 0
     * .00000001 MSC (or TMSC) transfer fee deducted from sender's balance
 
+### Multiple owners have same amount
+1. U1: Send to Owners
+    * 3 addresses have same amount
+1. U1, U2: Confirm
+    * transfer amount applied to those addresses in address alphabetical order
+
 ## Negative Tests - Not Valid
 ### Erroneous Message Field Data (each condition is individually invalid)
 1. U1: Attempt to Send to Owners:
