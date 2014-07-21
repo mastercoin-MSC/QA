@@ -21,7 +21,10 @@ For each test sequence, start in a known state and return to a known state after
 Where appropriate, tests should be run using the end-user UI and using the API directly.
 
 ## Positive Tests - Valid
-For the positive tests, each step must succeed - with correct results. 
+For all positive tests, 
+* each step must succeed with correct results, and
+* the total number of tokens owned must be exactly the same before and after the Send to Owners transaction
+
 ### Basic Send to Owners
 1. U1: Send to Owners
     * Currency Id = 1, 2, at least 2 smart properties (divis, indiv)
@@ -58,6 +61,8 @@ For the positive tests, each step must succeed - with correct results.
     * transfer amount applied to those addresses in address alphabetical order
 
 ## Negative Tests - Not Valid
+The message must be detected as invalid, with no changes made to any MP balances.
+
 ### Erroneous Message Field Data (each condition is individually invalid)
 1. U1: Attempt to Send to Owners:
     * currency id = 0 (bitcoin)
