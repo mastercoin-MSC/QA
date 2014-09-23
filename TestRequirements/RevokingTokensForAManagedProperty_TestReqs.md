@@ -39,7 +39,7 @@ Where appropriate, tests should be run using the end-user UI and using the API d
 ### Attempt to Create an incorrect Revoking Tokens for a Managed Property message
 1. U1: Attempt to create Revoking Tokens for a Managed Property transactions:
     * Property ID != an existing Property ID owned by the address created with Create a New Property with Managed Number of Tokens
-    * Number Properties is not within the range of valid values for the property's property type (Divisible, Indivisible)
+    * Number Properties is not within the range of valid values for the property's property type (Divisible, Indivisible), see [Number of Coins](https://github.com/mastercoin-MSC/spec#field-number-of-coins)
     * Number Properties exceeds the number of tokens of Property ID owned and available by the address
 
 1. U1: See that no token balances are changed for the address that issued the message
