@@ -33,12 +33,12 @@ Where appropriate, tests should be run using the end-user UI and using the API d
 
 ## Negative Tests - Not valid
 ### Attempt to Create an incorrect Granting Tokens for a Managed Property message
-1. U1: Attempt to create New Property with Managed Number of Tokens transactions:
+1. U1: Attempt to create Granting Tokens for a Managed Property transactions:
     * Property ID != an existing Property ID owned by the address created with Create a New Property with Managed Number of Tokens
-    * Number Properties is not within the range of valid values for the property's property type (Divisible, Indivisible)
-    * Number Properties would increase the total number of tokens for that property to more than the maximum number of coins for a smart property, see [Number of Coins](https://github.com/mastercoin-MSC/spec#field-number-of-coins).
+    * Number Properties is not within the range of valid values for the property's property type (Divisible, Indivisible), see [Number of Coins](https://github.com/mastercoin-MSC/spec#field-number-of-coins)
+    * Number Properties would increase the total number of tokens for that property to more than the maximum number of coins for a smart property, see [Number of Coins](https://github.com/mastercoin-MSC/spec#field-number-of-coins)
 
-1. U1: See that a property is not created with the erroneous input values
-1. U2: See that a property is not created with the erroneous input values
+1. U1: See that no token balances are changed for the address that issued the message
+1. U2: See that no token balances are changed for the address that issued the message
 
 The tester and developer should work together to write and run procedures that thoroughly test this functionality in the AUT.
