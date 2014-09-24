@@ -21,28 +21,37 @@ For each test sequence, start in a known state and return to a known state after
 Where appropriate, tests should be run using the end-user UI and using the API directly.
 
 ## Positive Tests - Valid
+There are many valid combinations of Crowdsale terms & conditions and participation in a crowdsale. Participation in a crowdsale does not require that the participant is credited with tokens from the crowdsale (e.g. the crowdsale is closed or never existed, the number of tokens to be credited is less than the minimum number of those tokens that can be transferred).
+
+Positive tests should exercise as many combinations and conditions as possible, including both low and high ends of input value ranges, a mix of divisible and indivisible property types. Also, set up crowdsale terms and conditions where the participant (and issuer) receives fewer tokens than expected because of the limit on the total number of tokens in one currency that can be issued.
+
 ### Create a Valid Simple Send 
 1. U1: Create New Property Creation via Crowdsale with Variable number of Tokens message(s) with valid values 
 1. U2: Create Simple Send message(s) with valid values for:
-    * Currency identifier = Currency Identifier Desired for the crowdsale
-    * Amount to transfer
+    * Currency Identifier
+    * Amount to Transfer
     * U1 Recipient address
 1. U1: See that
-    * U1 no longer owns the amount transferred
-    * U1 balance credited with the correct number of new tokens in the currency created by the crowdsale
-    * U2 now owns the amount transferred
+    * U2 available balance debited by the Amount to Transfer value 
+    * U2 available balance credited with the correct number of new tokens for the participant in the currency created by the crowdsale
+    * U1 available balance credited with the amount transferred from the sender
+    * U1 available balance credited with the correct number of new tokens for the issuer in the currency created by the crowdsale
 1. U2: See that
-    * U1 no longer owns the amount transferred
-    * U1 balance credited with the correct number of new tokens in the currency created by the crowdsale
-    * U2 now owns the amount transferred
+    * U2 available balance debited by the Amount to Transfer value 
+    * U2 available balance credited with the correct number of new tokens for the participant in the currency created by the crowdsale
+    * U1 available balance credited with the amount transferred from the sender
+    * U1 available balance credited with the correct number of new tokens for the issuer in the currency created by the crowdsale
 
-## Negative Tests - Not valid
+## Negative Tests - Invalid
+These tests are the same as the Negative Tests for Simple Send.
 ### Attempt to Create an Incorrect Simple Send
 1. U1: Attempt to create Simple Send message(s):
     * Currency identifier = 0 or any non-existent id or any id not owned by the address
-    * Amount to transfer = 0
+    * Amount to transfer = 0 or exceeds the number owned and available by the address
     * U2 Recipient address
-1. U1: See that U1 still owns the amount
-1. U2: See that U2 balance was not credited with the amount
+1. U1: See that U1 balances have not changed (except BTC transaction fees)
+1. U1: See that U2 balances have not changed
+1. U2: See that U1 balances have not changed (except BTC transaction fees)
+1. U2: See that U2 balances have not changed
 
 The tester and developer should work together to write and run procedures that thoroughly test this functionality in the AUT.
