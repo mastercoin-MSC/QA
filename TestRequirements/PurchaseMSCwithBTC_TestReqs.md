@@ -71,6 +71,23 @@ For the positive tests, each step must succeed with correct results.
 1. U2: See that your address now owns the purchased coins
 1. U1: See that your address now owns the amount paid
 
+### Less is Available than What was Accepted
+1. U1: Create sell offer
+1. U1, U2, U3, U4: See:
+ 1. correct terms of new sell offer
+ 1. U1 MSC available balance decreased by amount for sale
+ 1. U1 MSC reserved balance increased by amount for sale
+1. U2: Send accept for more than 50% of amount for sale (but not all)
+1. U3: Send accept for more than 50% of amount for sale
+1. U4: Send accept for more than 50% of amount for sale
+1. U1, U2, U3, U4: See:
+ 1. U2 has accepted more than 50% 
+ 1. U1 amount remaining for sale decreased by amount accepted
+1. U1, U2, U3, U4: See:
+ 1. U3 has accepted amount remaining for sale
+ 1. Amount remaining for sale is zero
+ 1. U4 accept is not valid because Amount remaining for sale is zero
+
 ### Extra Payment after Full Purchase
 1. U1: Create a sell offer
 1. U2: View the sell offer

@@ -34,7 +34,7 @@ Where appropriate, tests should be run using the end-user UI and using the API d
 ## Negative Tests - Not valid
 ### Attempt to Create an Incorrect Simple Send
 1. U1: Attempt to create Simple Send message(s):
-    * Currency identifier = 0 or any non-existent id
+    * Currency identifier = 0 or any non-existent id or any id not owned by the address
     * Amount to transfer = 0
     * U2 Recipient address
 1. U1: See that you still own the amount
